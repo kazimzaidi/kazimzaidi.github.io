@@ -14,3 +14,5 @@ img.me {
 .contact-label { color: #aaa; }
 
 .red { color: red; }
+
+button.navigate-left, button.navigate-right { display: none; }
