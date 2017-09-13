@@ -1,6 +1,13 @@
 Mohammad Kazim Zaidi
 --------------------
+I'm a full stack web developer based in New Delhi, India.
 
+I love to develop practical solutions for complex problems and design maintenable systems from scratch.
+
+main ingredients of my magic sauce: tea, ruby, rails, *.js
+
+About me
+--------
 At present I'm working with 5amily, an online gift store that sells shirts, mugs and bags customized to people's names and interests. I'm with 5amily (pronounced family) since around 9 years.
 
 Around 2007-08, I worked with ValueMax solutions for around 7 months, and helped them build two products - Coupons4Me, which was a coupon aggregator, and Spendwrite, a yelp-like site that would host user reviews for local businesses.
@@ -11,7 +18,6 @@ I majored in Computer Science from JMI, New Delhi in the year 2009.
 
 Experience
 ----------
-
 Senior Web Developer at 5amily.com
 March 2008 - Present (9+ years)
 
@@ -78,7 +84,6 @@ a referral system that rewards people who refer others to our products
 
 Education
 ---------
-
 Bachelor of Technology (Computer Science) - Jamia Millia Islamia, New Delhi
 2005 - 2009 (4 years)
   General Secretary, Executive Committee 2007-08, CSI Student Chapter
@@ -93,7 +98,6 @@ Senior Secondary - Aligarh Muslim University
 
 Contact Me
 ----------
-
 New Delhi, India
 Phone: +91 9718 379 014
 Email: pursuit86@gmail.com

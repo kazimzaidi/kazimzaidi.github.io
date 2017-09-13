@@ -16,3 +16,7 @@ img.me {
 .red { color: red; }
 
 button.navigate-left, button.navigate-right { display: none; }
+
+.extra-links { z-index: 1; top: 1em; right: 1em; position: absolute; }
+.extra-links a { text-decoration: none; color: #888; }
+.extra-links a:hover { text-decoration: underline; text-shadow: none; border: none; color: #444; }
