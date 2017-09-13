@@ -1,5 +1,7 @@
 <html>
   <head>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/simple.css">
     <link rel="stylesheet" href="css/style.css">
@@ -35,7 +37,7 @@
 
           <section>
             <h5>here's all that I've been doing...</h5>
-            <img class="skills" src="img/skills.png" width="759" height="658">
+            <img class="skills" src="img/skills.png">
           </section>
 
         </section>
@@ -44,6 +46,12 @@
     </div>
 
     <script src="js/reveal.js"></script>
-    <script>Reveal.initialize();</script>
+    <script>
+      Reveal.initialize({
+        width: 550,
+        height: 650,
+        maxScale: 1
+      });
+    </script>
   </body>
 </html>
