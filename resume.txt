@@ -1,25 +1,37 @@
 Mohammad Kazim Zaidi
 --------------------
-I'm a full stack web developer based in New Delhi, India.
 
-I love to develop practical solutions for complex problems and design maintenable systems from scratch.
+I'm a full stack web developer based in Greater Noida West (adjacent to Delhi), India.
+
+I love to develop pragmatic solutions for complex problems and design maintenable systems from scratch.
 
 main ingredients of my magic sauce: tea, ruby, rails, *.js
 
+
 About me
 --------
-At present I'm working with 5amily, an online gift store that sells shirts, mugs and bags customized to people's names and interests. I'm with 5amily (pronounced family) since around 9 years.
+At present I'm leading a team of developers at JiffyShirts.com, which is leading online reseller of
+blank imprintable clothing, mostly shirts. I mostly lead projects around search and product discoverability, but also around price automation and i18n. I've been working on some awesome projects recently for the crafters & designers community.
+
+
+Work History
+------------
+Before this, I worked for 5amily, an online gift store that sells shirts, mugs and bags customized to people's names and interests. I worked with 5amily (pronounced family) for around 9+ years.
 
 Around 2007-08, I worked with ValueMax solutions for around 7 months, and helped them build two products - Coupons4Me, which was a coupon aggregator, and Spendwrite, a yelp-like site that would host user reviews for local businesses.
 
-During my college days, I was hired by CivicSpace USA as a Summer Training Intern, where I worked on some ecommerce related Drupal modules.
+During my college days, I was hired by CivicSpace USA as a Summer Training Intern, where I worked on some ecommerce related Drupal modules. Drupal is nice.
 
 I majored in Computer Science from JMI, New Delhi in the year 2009.
 
+
 Experience
 ----------
+Technical Lead Manager at JiffyShirts.com
+December 2017 - Present (5+ years)
+
 Senior Web Developer at 5amily.com
-March 2008 - Present (9+ years)
+March 2008 - November 2017 (~ 9.5 years)
 
 Web Developer at ValueMax Solutions
 Oct 2007 - Mar 2008 & Jun 2007 (7 months)
@@ -28,9 +40,37 @@ Summer Training Intern at CivicSpace USA (Drupal)
 Aug 2006 - Sep 2006 (2 months)
 
 
-Things I built
+Education
+---------
+Bachelor of Technology (Computer Science)
+Jamia Millia Islamia, New Delhi
+2005 - 2009 (4 years)
+
+Senior Secondary - Aligarh Muslim University
+2002 - 2004 (2 years)
+
+Contact Me
+----------
+Greater Noida West, adjacent to Delhi, India
+phone +91 9718 379 014
+skype kazim.zaidi57
+email smkazimzaidi5@gmail.com
+web https://kazim.dev
+github http://github.com/kazimzaidi
+linkedin http://linkedin.com/in/kazimzaidi
+
+
+Things I Built
 --------------
 a Rails-based custom ecommerce backend, with ember.js (and later riot.js) powered frontend, with stripe and paypal as payment options, an extensible coupon creator, upsells, shipment tracking and reviews
+
+a complete product for crafters to manage their crafting projects from blanks to finished goods
+
+complex product search and sorting that considers dynamic factors like stock, availability
+
+highly configurable platform to run parellel sales (in Solidus) of different types
+
+extended Solidus ecommerce store to support multiple countries
 
 a comprehensive MIS integrated with Google Analytics and Facebook APIs that would report campaign performances using order attribution.
 
@@ -81,27 +121,3 @@ a collaborative greeting card editor that friends sign (and write messages on) f
 Freebase integration for worldwide places data -- later we used Google Autocomplete Places for this
 
 a referral system that rewards people who refer others to our products
-
-Education
----------
-Bachelor of Technology (Computer Science) - Jamia Millia Islamia, New Delhi
-2005 - 2009 (4 years)
-  General Secretary, Executive Committee 2007-08, CSI Student Chapter
-  Web Developer - CSI JMI Community Website & Algorhythm 2007 & 2008 (www.csijmi.com)
-  Joint Secretary, Executive Committee 2006-07, CSI Student Chapter
-  Founder Member, Jamia Millia Islamia Linux Users Group
-  Organiser - Open Source Programming Contest, Algorhythm 2006
-  Organiser - Network Gaming Contest, Encomium 2005
-
-Senior Secondary - Aligarh Muslim University
-2002 - 2004 (2 years)
-
-Contact Me
-----------
-New Delhi, India
-Phone: +91 9718 379 014
-Email: pursuit86@gmail.com
-Skype: kazim.zaidi57
-Web: http://kazimzaidi.com
-Github: http://github.com/kazimzaidi
-LinkedIn: http://linkedin.com/in/kazimzaidi
