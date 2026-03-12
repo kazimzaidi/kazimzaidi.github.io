@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Kazim Zaidi — Principal Engineer</title>
+  <meta name="description" content="Principal Engineer with 18+ years building e-commerce platforms. Currently at Jiffy.com.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #2c2418;
+      --text-secondary: #6b5d4d;
+      --text-muted: #a89882;
+      --accent: #c2622d;
+      --accent-warm: #d4834a;
+      --accent-light: #fdf0e8;
+      --accent-glow: rgba(194, 98, 45, 0.08);
+      --border: #ebe6df;
+      --border-light: #f3efe9;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(44, 36, 24, 0.04), 0 1px 2px rgba(44, 36, 24, 0.02);
+      --shadow-md: 0 4px 20px rgba(44, 36, 24, 0.06), 0 2px 6px rgba(44, 36, 24, 0.03);
+      --shadow-lg: 0 12px 40px rgba(44, 36, 24, 0.08);
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 100%;
+      background: radial-gradient(ellipse 70% 50% at 50% 30%, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      position: relative;
+    }
+
+    /* ===== PHOTO with AI pulse ring ===== */
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 32px;
+      border: 4px solid var(--surface);
+      box-shadow: var(--shadow-lg), 0 0 0 1px var(--border);
+      position: relative;
+    }
+
+    /* Pulsing ring around photo — like an AI "active" indicator */
+    .hero-photo-ring {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-photo-ring::before,
+    .hero-photo-ring::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      opacity: 0;
+      /* animation driven by JS — no infinite loop */
+    }
+
+    .hero-photo-ring.pulse-once::before {
+      animation: pulse-ring 1.4s ease-out forwards;
+    }
+    .hero-photo-ring.pulse-once::after {
+      animation: pulse-ring 1.4s ease-out 0.35s forwards;
+    }
+
+    @keyframes pulse-ring {
+      0%   { opacity: 0.4; transform: scale(0.95); }
+      70%  { opacity: 0; transform: scale(1.15); }
+      100% { opacity: 0; transform: scale(1.15); }
+    }
+
+    .hero-photo-ring .hero-photo {
+      margin: 0;
+    }
+
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+
+    .hero-photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #f7e4d6 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-role {
+      font-family: var(--mono);
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      margin-top: 20px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== THINKING ANIMATION — Claude spinner ===== */
+    .thinking-line {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-top: 32px;
+      height: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .thinking-line .prompt {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .thinking-line .spinner-wrap {
+      display: inline-block;
+      height: 1.3em;
+      line-height: 1.3em;
+      overflow: hidden;
+      vertical-align: middle;
+      width: 1.4ch;
+      color: var(--accent);
+      font-size: 1.2rem;
+      animation: spinner-out 0.3s ease 3.8s forwards;
+    }
+
+    .thinking-line .spinner-chars {
+      display: block;
+      line-height: 1.3em;
+      animation: spin-scroll 1.8s steps(6) 0.3s 2;
+      animation-fill-mode: forwards;
+    }
+
+    /* Fast replay variant */
+    .thinking-line.fast .spinner-wrap {
+      animation: spinner-out 0.2s ease 1.6s forwards;
+    }
+    .thinking-line.fast .spinner-chars {
+      animation: spin-scroll 0.7s steps(6) 0.1s 2;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes spin-scroll {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-7.8em); }
+    }
+
+    @keyframes spinner-out {
+      to { width: 0; opacity: 0; overflow: hidden; }
+    }
+
+    .thinking-line .resolved {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 1.1rem;
+      text-shadow: 0 0 20px rgba(194, 98, 45, 0.3);
+    }
+
+    .thinking-line .resolved-cursor {
+      color: var(--accent);
+      font-weight: 300;
+      font-size: 1.1rem;
+      opacity: 0.5;
+      animation: blink-cursor 1s step-end infinite;
+      margin-left: 1px;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 16px;
+      margin-top: 28px;
+      font-size: 0.875rem;
+    }
+
+    .hero-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 1px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .hero-links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .hero-links .sep { color: var(--border); }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== SECTION HEADING — monospace with > prefix + blinking cursor ===== */
+    .section-heading {
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .section-heading .sh-prompt {
+      opacity: 0.5;
+    }
+
+    .section-heading .sh-cursor {
+      font-weight: 300;
+      opacity: 0.4;
+      animation: blink-cursor 1s step-end infinite;
+      margin-left: 1px;
+    }
+
+    /* Before typing starts, cursor is visible but no text yet */
+    .section-heading .sh-text {
+      /* text is inserted by JS */
+    }
+
+    @keyframes blink-cursor {
+      50% { opacity: 0; }
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px 48px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover { box-shadow: var(--shadow-md); }
+
+    /* ===== ABOUT ===== */
+    .about p {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .about p:last-child { margin-bottom: 0; }
+
+    /* ===== EXPERIENCE — SINGLE COLUMN TIMELINE ===== */
+    .exp-timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px; bottom: 8px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+
+    .exp-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--accent);
+      z-index: 1;
+    }
+
+    /* Current role dot gets a pulse — "live" indicator */
+    .exp-item.current .exp-dot {
+      border-color: var(--accent);
+    }
+
+    .exp-item.current .exp-dot::after {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      animation: dot-pulse 2s ease-out infinite;
+    }
+
+    @keyframes dot-pulse {
+      0%   { opacity: 0.6; transform: scale(0.8); }
+      70%  { opacity: 0; transform: scale(1.8); }
+      100% { opacity: 0; transform: scale(1.8); }
+    }
+
+    .exp-item.minor .exp-dot {
+      width: 10px; height: 10px;
+      border-width: 2px;
+      border-color: var(--text-muted);
+      left: -31px;
+      top: 7px;
+    }
+
+    .exp-role {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      margin-bottom: 4px;
+    }
+
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .exp-org {
+      font-size: 0.9375rem;
+      color: var(--accent-warm);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .exp-org a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed var(--accent-warm);
+      transition: opacity 0.2s;
+    }
+
+    .exp-org a:hover { opacity: 0.75; }
+
+    .exp-summary {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-item li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.75;
+    }
+
+    .exp-item li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 11px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+      opacity: 0.5;
+    }
+
+    .project-block { margin-bottom: 18px; }
+    .project-block:last-child { margin-bottom: 0; }
+
+    .project-name {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .project-desc {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ===== STATS — monospace inline ===== */
+    .stats-inline {
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+    }
+
+    .stats-inline .si { color: var(--text-secondary); }
+    .stats-inline .si strong { color: var(--accent); font-weight: 500; }
+
+    /* ===== AI TAG — small monospace badge ===== */
+    .ai-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid rgba(194, 98, 45, 0.15);
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-left: 8px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .ai-tag .ai-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: ai-blink 2s ease infinite;
+    }
+
+    @keyframes ai-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ===== WHAT I BRING — single col, left border ===== */
+    .strength-item {
+      padding: 24px 28px;
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 16px;
+      transition: box-shadow 0.25s ease, border-left-color 0.25s ease;
+    }
+
+    .strength-item:hover {
+      box-shadow: var(--shadow-sm);
+      border-left-color: var(--accent-warm);
+    }
+
+    .strength-item:last-child { margin-bottom: 0; }
+
+    .strength-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .strength-icon { font-size: 1.25rem; }
+
+    .strength-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .strength-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      margin-bottom: 14px;
+    }
+
+    .edu-row:last-child { margin-bottom: 0; }
+
+    .edu-degree { font-size: 0.9375rem; font-weight: 600; color: var(--text); }
+    .edu-school { font-size: 0.875rem; color: var(--text-secondary); }
+    .edu-year { font-family: var(--mono); font-size: 0.8125rem; color: var(--text-muted); white-space: nowrap; }
+
+    /* ===== FOOTER — terminal style ===== */
+    footer {
+      padding: 48px 24px 64px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-note {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    .footer-cursor {
+      animation: blink-cursor 1s step-end infinite;
+      opacity: 0.4;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero { min-height: auto; padding: 48px 24px 40px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-photo-ring { width: 120px; height: 120px; }
+      .hero-photo { width: 120px; height: 120px; }
+      .card { padding: 28px 24px; }
+      .exp-header { flex-direction: column; }
+      .stats-inline { gap: 12px; font-size: 0.75rem; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: #fff; }
+      .hero { min-height: auto; padding: 24px 0; }
+      .hero::before { display: none; }
+      .hero-photo-ring::before, .hero-photo-ring::after { display: none; }
+      .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+      .exp-item { break-inside: avoid; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .thinking-line { display: none; }
+      .section-heading .sh-cursor { display: none; }
+      .ai-tag .ai-dot { animation: none; }
+      .exp-item.current .exp-dot::after { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .thinking-line .spinner-chars { animation: none; }
+      .thinking-line .spinner-wrap { display: none; }
+      .thinking-line .resolved { opacity: 1; animation: none; }
+      .hero-photo-ring::before, .hero-photo-ring::after { animation: none; }
+      .exp-item.current .exp-dot::after { animation: none; }
+      .section-heading .sh-cursor { animation: none; }
+      .ai-tag .ai-dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo-ring">
+      <div class="hero-photo">
+        <img src="img/kazim.png" alt="Kazim Zaidi">
+      </div>
+    </div>
+
+    <h1>Mohammad Kazim Zaidi</h1>
+    <div class="hero-role">Principal Engineer</div>
+    <p class="hero-tagline">
+      18+ years building e-commerce from the ground up — design tools,
+      marketplaces, fulfillment systems, and everything in between.<br>
+      Based in Delhi NCR, India.
+    </p>
+
+    <div class="thinking-line">
+      <span class="prompt">&gt;&nbsp;</span>
+      <span class="spinner-wrap">
+        <span class="spinner-chars">&middot;<br>&#x273B;<br>&#x273D;<br>&#x2736;<br>&#x2733;<br>&#x2722;<br>&nbsp;</span>
+      </span>
+      <span class="resolved" data-typetext="ready to build"></span><span class="resolved-cursor" style="display:none;">|</span>
+    </div>
+
+    <div class="hero-links">
+      <a href="mailto:kazim@kazim.dev">kazim@kazim.dev</a>
+      <span class="sep">/</span>
+      <a href="tel:+919718379014">+91 9718 379 014</a>
+      <span class="sep">/</span>
+      <a href="https://github.com/kazimzaidi" target="_blank">GitHub</a>
+      <span class="sep">/</span>
+      <a href="https://linkedin.com/in/kazimzaidi" target="_blank">LinkedIn</a>
+      <span class="sep">/</span>
+      <a href="resume-v2.md">Resume (Markdown)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<div class="container">
+
+  <div class="card reveal">
+    <div class="section-heading" data-typetext="about"><span class="sh-prompt">&gt; </span><span class="sh-text"></span><span class="sh-cursor">|</span></div>
+    <div class="about">
+      <p>I'm a full-stack engineer with 18+ years of experience, mostly spent building e-commerce products from the ground up. I've shipped everything from custom design tools to order fulfillment pipelines to entire marketplaces.</p>
+      <p>What sets me apart is that I don't just write code — I think about the customer experience, the business logic, and the edge cases that product specs often miss. I've spent years working side-by-side with product managers and business teams, which gives me a strong sense of what makes features actually useful, not just functional.</p>
+      <p>These days, I work heavily with AI coding agents. I treat them like a team — I drive the architecture and decisions, they do the heavy lifting. It's changed how I build software and how much a single engineer can ship. I'm excited about using AI and automation to make teams faster and workflows smarter.</p>
+    </div>
+  </div>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <div class="card reveal">
+    <div class="section-heading" data-typetext="experience"><span class="sh-prompt">&gt; </span><span class="sh-text"></span><span class="sh-cursor">|</span></div>
+
+    <div class="exp-timeline">
+
+      <!-- 1. Principal Engineer -->
+      <div class="exp-item current reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Principal Engineer</span>
+          <span class="exp-date">Feb 2026 — Present</span>
+        </div>
+        <div class="exp-org"><a href="https://jiffy.com" target="_blank">Jiffy.com</a></div>
+        <p class="exp-summary">Jiffy.com is one of the largest online sellers of blank apparel, DTF transfers and print-on-demand products in the US.</p>
+        <ul>
+          <li>Setting technical direction across the platform, print, and commerce systems</li>
+          <li>Architecting Group Orders — a system where one person creates a group, invites members, everyone picks their own design and size, and we ship the whole thing together, or to individual members separately. Involves member state management, invite links, design snapshots, and payment orchestration with Stripe</li>
+          <li>Championing AI-augmented development across the engineering team — using coding agents for implementation, review, and exploration, treating AI as a force multiplier <span class="ai-tag"><span class="ai-dot"></span>ai-augmented</span></li>
+        </ul>
+      </div>
+
+      <!-- 2. Tech Lead Manager -->
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Technical Lead Manager</span>
+          <span class="exp-date">Dec 2017 — Jan 2026</span>
+        </div>
+        <div class="exp-org"><a href="https://jiffy.com" target="_blank">Jiffy.com</a></div>
+        <p class="exp-summary">Led engineering teams while staying deeply hands-on. Owned major product initiatives end-to-end — from early brainstorming with product managers to shipping and monitoring in production. Reviewed thousands of pull requests across multiple teams.</p>
+
+        <div class="project-block">
+          <div class="project-name">Print-on-Demand Platform — Jiffy Custom</div>
+          <div class="project-desc">Built the system that lets customers design custom apparel in the browser and order it. This includes a Design Lab (a browser-based editor where customers place artwork on shirts, mugs, etc.), real-time preview rendering, mobile-responsive editing, and the full add-to-cart-to-fulfillment pipeline.</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Fastest Delivery</div>
+          <div class="project-desc">Led a delivery optimization initiative that calculates the fastest possible delivery date for print orders based on print method, shipping options, and fulfillment location. This directly improved conversion by giving customers clear delivery expectations upfront.</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Jiffy Designs — Digital Assets Marketplace</div>
+          <div class="project-desc">Built a platform where designers can upload and manage their artwork. Includes AI-powered tagging and metadata generation, importing from sources like Etsy and Google Drive, and a search experience backed by Elasticsearch. <span class="ai-tag"><span class="ai-dot"></span>ai-powered</span></div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Dekeo &amp; CrafterPay — Print on Demand Marketplace</div>
+          <div class="project-desc">Architected a full two-sided marketplace from scratch. Customers could find local designers by location and specialty, get quotes, chat in real-time, and place custom orders. Designers had portfolios, payment tracking, and order management. This was a large effort touching every layer of the stack.</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Jiffy Transfers — DTF Sheets Marketplace</div>
+          <div class="project-desc">Lead a team that launched a marketplace from scratch, for DTF gang sheets. Customers could upload artwork, that gets enhanced and background-removed using AI pipeline, and gets sent as gangsheets to a printer network across USA. Fully automated fulfilment, and superfast delivery times. <span class="ai-tag"><span class="ai-dot"></span>ai-pipeline</span></div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Multi-Supplier Order Orchestration</div>
+          <div class="project-desc">Pioneered the system that automatically routes orders to the right supplier (Alphabroder, S&amp;S Activewear, Sanmar) based on inventory, cost, and delivery speed. Includes failover logic — if one supplier is out of stock, the system reassigns automatically. Also built "dark inventory" simulation to model what-if scenarios for warehouse allocation.</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Dynamic Pricing &amp; Sales Engine</div>
+          <div class="project-desc">Created a flexible pricing system with tiered pricing based on cart totals, parallel sale campaigns, and A/B testing to measure impact.</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Jiffy Canada</div>
+          <div class="project-desc">Extended Jiffy to support multiple countries with localized pricing and tax rules — and launched Jiffy Canada.</div>
+        </div>
+
+        <div class="stats-inline">
+          <span class="si"><strong>3,200+</strong> commits</span>
+          <span class="si"><strong>4,800+</strong> PRs reviewed</span>
+          <span class="si"><strong>200+</strong> releases</span>
+          <span class="si"><strong>8</strong> years</span>
+        </div>
+      </div>
+
+      <!-- 3. 5amily -->
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Senior Web Developer</span>
+          <span class="exp-date">Mar 2008 — Nov 2017</span>
+        </div>
+        <div class="exp-org">5amily.com</div>
+        <p class="exp-summary">5amily (pronounced "family") was a personalized gifting store — shirts, mugs, and bags customized with people's names and interests. I was one of the earliest engineers and built most of the product.</p>
+        <ul>
+          <li>Built the entire e-commerce backend in Rails, with frontend iterations in Ember.js and later Riot.js. Integrated Stripe and PayPal for payments, built a coupon engine, upsell system, and shipment tracking</li>
+          <li>Created a design system that could generate thousands of product variations from HTML templates based on a customer's name and passion (like "Sarah who loves Dogs"). Used SHA-based caching so the same design wouldn't be rendered twice</li>
+          <li>Built a complete family tree platform — collaborative editing, tree merging, duplicate detection, permission controls, ancestor/descendant charts, and personalized family newsletters</li>
+          <li>Developed an in-house email marketing platform</li>
+          <li>Launched an in-house state of the art Facebook Ads automation engine with rule-based budget control, and a Messenger bot platform with conversation scripting</li>
+          <li>Managed deployment on AWS (EC2, RDS, S3, CloudFront) and handled site performance optimization and SEO</li>
+        </ul>
+      </div>
+
+      <!-- 4. ValueMax -->
+      <div class="exp-item minor reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Web Developer</span>
+          <span class="exp-date">Jun 2007 — Mar 2008</span>
+        </div>
+        <div class="exp-org">ValueMax Solutions</div>
+        <p class="exp-summary">Built two web products (while in college): Coupons4Me (a coupon aggregator) and Spendwrite (a local business review platform, similar to early Yelp).</p>
+      </div>
+
+      <!-- 5. CivicSpace -->
+      <div class="exp-item minor reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <span class="exp-role">Summer Intern</span>
+          <span class="exp-date">Aug — Sep 2006</span>
+        </div>
+        <div class="exp-org">CivicSpace USA</div>
+        <p class="exp-summary">Worked on e-commerce-related Drupal modules during a summer internship.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== WHAT I BRING ==================== -->
+  <div class="card reveal">
+    <div class="section-heading" data-typetext="what i bring"><span class="sh-prompt">&gt; </span><span class="sh-text"></span><span class="sh-cursor">|</span></div>
+
+    <div class="strength-item reveal">
+      <div class="strength-head">
+        <span class="strength-icon">&#x1f9e0;</span>
+        <div class="strength-title">Product Thinking</div>
+      </div>
+      <div class="strength-desc">I've spent years brainstorming with product managers and business teams. I naturally think about user flows, edge cases, and whether a feature actually solves the problem — not just whether it works technically.</div>
+    </div>
+
+    <div class="strength-item reveal">
+      <div class="strength-head">
+        <span class="strength-icon">&#x1f6d2;</span>
+        <div class="strength-title">Deep E-commerce Knowledge</div>
+      </div>
+      <div class="strength-desc">18 years of building online stores, with deep expertise in print-on-demand (custom apparel, mugs, etc.), order fulfillment, inventory management, and pricing systems.</div>
+    </div>
+
+    <div class="strength-item reveal">
+      <div class="strength-head">
+        <span class="strength-icon">&#x1f916;</span>
+        <div class="strength-title">AI-First Workflow <span class="ai-tag"><span class="ai-dot"></span>daily driver</span></div>
+      </div>
+      <div class="strength-desc">I use AI coding agents daily — for writing code, exploring approaches, and accelerating delivery. I'm always looking for ways to push this further.</div>
+    </div>
+
+    <div class="strength-item reveal">
+      <div class="strength-head">
+        <span class="strength-icon">&#x2699;&#xFE0F;</span>
+        <div class="strength-title">Automation Mindset</div>
+      </div>
+      <div class="strength-desc">I get excited about removing manual work. Whether it's order routing, content generation, or developer workflows — if it can be automated, I want to automate it.</div>
+    </div>
+
+    <div class="strength-item reveal">
+      <div class="strength-head">
+        <span class="strength-icon">&#x1f527;</span>
+        <div class="strength-title">Full-Stack, End-to-End</div>
+      </div>
+      <div class="strength-desc">Ruby on Rails is my strongest tool. I understand React well and review frontend code regularly, though I'm more backend-leaning. Comfortable with PostgreSQL, Elasticsearch, Sidekiq, Redis, AWS, and Docker.</div>
+    </div>
+
+    <div class="strength-item reveal">
+      <div class="strength-head">
+        <span class="strength-icon">&#x1f4ac;</span>
+        <div class="strength-title">Communication &amp; Big-Picture Thinking</div>
+      </div>
+      <div class="strength-desc">I can zoom out, ask the right questions, and introduce fresh ideas when needed. Over the years, I've learned to value pragmatism over novelty. I prioritize getting to a usable product early rather than spending excessive time perfecting something the market may not need.</div>
+    </div>
+  </div>
+
+  <!-- ==================== EDUCATION ==================== -->
+  <div class="card reveal">
+    <div class="section-heading" data-typetext="education"><span class="sh-prompt">&gt; </span><span class="sh-text"></span><span class="sh-cursor">|</span></div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">B.Tech in Computer Science</div>
+        <div class="edu-school">Jamia Millia Islamia, New Delhi</div>
+      </div>
+      <div class="edu-year">2005 — 2009</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">Senior Secondary</div>
+        <div class="edu-school">Aligarh Muslim University</div>
+      </div>
+      <div class="edu-year">2002 — 2004</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-links">
+    <a href="mailto:kazim@kazim.dev">Email</a>
+    <a href="https://github.com/kazimzaidi" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/kazimzaidi" target="_blank">LinkedIn</a>
+    <a href="resume-v2.md">Markdown Version</a>
+  </div>
+  <div class="footer-note">&gt; built with care in 2026 <span class="footer-cursor">|</span></div>
+</footer>
+
+<script>
+  (function() {
+    /* ===== Scroll reveal ===== */
+    var revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length) {
+      var revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function(el) { revealObs.observe(el); });
+    }
+
+    /* ===== Typewriter engine ===== */
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function typewrite(targetEl, text, onDone) {
+      if (prefersReduced) {
+        targetEl.textContent = text;
+        if (onDone) onDone();
+        return;
+      }
+      var i = 0;
+      function tick() {
+        targetEl.textContent = text.slice(0, i + 1);
+        i++;
+        if (i < text.length) {
+          // Variable speed: 40–120ms per char, occasional longer pause on spaces
+          var base = 40 + Math.random() * 80;
+          var delay = text[i] === ' ' ? base + Math.random() * 100 : base;
+          setTimeout(tick, delay);
+        } else {
+          if (onDone) onDone();
+        }
+      }
+      tick();
+    }
+
+    /* ===== Section headings — type on scroll ===== */
+    var headings = document.querySelectorAll('.section-heading[data-typetext]');
+    if (headings.length) {
+      var headingObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            headingObs.unobserve(entry.target);
+            var textEl = entry.target.querySelector('.sh-text');
+            var text = entry.target.getAttribute('data-typetext');
+            if (prefersReduced) {
+              textEl.textContent = text;
+            } else {
+              typewrite(textEl, text);
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+      headings.forEach(function(el) { headingObs.observe(el); });
+    }
+
+    /* ===== "ready to ___" — type after spinner, click to replay ===== */
+    var thinkingLine = document.querySelector('.thinking-line');
+    var resolved = document.querySelector('.resolved[data-typetext]');
+    var spinnerWrap = document.querySelector('.thinking-line .spinner-wrap');
+
+    var readyWords = [
+      'build', 'ship', 'create', 'brainstorm', 'collaborate',
+      'explore', 'iterate', 'launch', 'design', 'solve',
+      'tinker', 'prototype', 'refactor', 'deploy', 'imagine',
+      'hack', 'optimize', 'experiment', 'jam', 'dream'
+    ];
+    var lastWord = '';
+
+    function pickWord() {
+      var word;
+      do {
+        word = readyWords[Math.floor(Math.random() * readyWords.length)];
+      } while (word === lastWord && readyWords.length > 1);
+      lastWord = word;
+      return word;
+    }
+
+    var isFirstPlay = true;
+    var replayTimer = null;
+
+    function playThinkingAnimation(fast) {
+      if (!resolved || !spinnerWrap) return;
+
+      // Cancel any pending typing from a previous play
+      if (replayTimer) { clearTimeout(replayTimer); replayTimer = null; }
+
+      var word = isFirstPlay ? 'build' : pickWord();
+      var text = 'ready to ' + word;
+      var cursorEl = resolved.nextElementSibling; // .resolved-cursor
+
+      // Clear previous state
+      resolved.textContent = '';
+      if (cursorEl) cursorEl.style.display = 'none';
+
+      if (prefersReduced) {
+        resolved.textContent = text;
+        if (cursorEl) cursorEl.style.display = 'inline';
+        return;
+      }
+
+      // Toggle fast class for replay speed
+      if (fast) {
+        thinkingLine.classList.add('fast');
+      } else {
+        thinkingLine.classList.remove('fast');
+      }
+
+      // Reset spinner by replacing with a clone (restarts CSS animations)
+      var newSpinner = spinnerWrap.cloneNode(true);
+      spinnerWrap.parentNode.replaceChild(newSpinner, spinnerWrap);
+      spinnerWrap = newSpinner;
+
+      // Delay: first play ~4.1s, replay ~1.8s
+      var delay = fast ? 1800 : 4100;
+      replayTimer = setTimeout(function() {
+        if (cursorEl) cursorEl.style.display = 'inline';
+        typewrite(resolved, text);
+        replayTimer = null;
+      }, delay);
+    }
+
+    // Initial play
+    playThinkingAnimation(false);
+    isFirstPlay = false;
+
+    // Click to replay (fast)
+    if (thinkingLine && !prefersReduced) {
+      thinkingLine.addEventListener('click', function() {
+        playThinkingAnimation(true);
+      });
+    }
+
+    /* ===== Photo ring — pulse, pause random 1-5s, repeat ===== */
+    var ring = document.querySelector('.hero-photo-ring');
+    if (ring && !prefersReduced) {
+      function doPulse() {
+        ring.classList.remove('pulse-once');
+        // Force reflow so the animation restarts
+        void ring.offsetWidth;
+        ring.classList.add('pulse-once');
+        // Animation is 1.4s + 0.35s delay = ~1.75s total. Wait for it, then random pause.
+        var pause = 1750 + 1000 + Math.random() * 4000; // 1-5s after animation ends
+        setTimeout(doPulse, pause);
+      }
+      // First pulse after a short delay
+      setTimeout(doPulse, 800);
+    }
+  })();
+</script>
+
+</body>
+</html>
