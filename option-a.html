@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Kazim Zaidi — Principal Engineer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    /* Root Variables */
+    :root {
+      --accent: #c2622d;
+      --cream: #faf8f5;
+      --dark: #1a1a1a;
+      --light-gray: #f0ebe5;
+      --border: #e8e0d8;
+      --white: #ffffff;
+    }
+
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Typography */
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4rem;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #d97548);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    .hero-content h1 {
+      animation: fadeInDown 0.6s ease;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--accent);
+      width: 0;
+      animation: typing 2.4s steps(18) 0.5s forwards,
+                 cursor-blink 0.6s step-end 0.5s 6,
+                 cursor-fade 0.5s 3s forwards;
+    }
+
+    @keyframes typing {
+      to { width: 18ch; }
+    }
+
+    @keyframes cursor-blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes cursor-fade {
+      to { border-color: transparent; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-links a {
+      border-bottom: 1px solid var(--accent);
+    }
+
+    /* Card Styling */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      opacity: 0;
+      animation: revealCard 0.8s ease forwards;
+    }
+
+    @keyframes revealCard {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card.reveal {
+      opacity: 1;
+    }
+
+    /* About Section */
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Experience Section */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .experience-item {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .experience-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 32px;
+      width: 2px;
+      height: calc(100% + 8px);
+      background: var(--border);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .experience-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .experience-dates {
+      font-size: 0.9rem;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    .experience-company {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .experience-description {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .experience-bullets {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .experience-bullets li {
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .experience-bullets li::before {
+      content: '→ ';
+      color: var(--accent);
+      margin-right: 0.5rem;
+      font-weight: 600;
+    }
+
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-item {
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .project-name {
+      font-weight: 600;
+      color: var(--dark);
+      display: inline;
+    }
+
+    .project-desc {
+      display: inline;
+      color: #666;
+    }
+
+    .experience-stats {
+      background: linear-gradient(135deg, var(--accent), #d97548);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      background: linear-gradient(135deg, var(--accent), #d97548);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    /* What I Bring Grid */
+    .brings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .bring-card {
+      background: var(--light-gray);
+      padding: 1.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .bring-card-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .bring-card h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+
+    .bring-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #666;
+      margin: 0;
+    }
+
+    /* Education Section */
+    .education-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .education-item {
+      padding-left: 0;
+    }
+
+    .education-degree {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .education-school {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .education-dates {
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-photo {
+        width: 150px;
+        height: 150px;
+        font-size: 2rem;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .experience-dates {
+        order: 3;
+        width: 100%;
+      }
+
+      .brings-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      .card {
+        padding: 1.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.9rem;
+      }
+
+      .hero-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+
+      .stats-bar {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: var(--white);
+      }
+
+      .card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border);
+      }
+
+      .experience-item {
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: var(--dark);
+        border-bottom: none;
+      }
+
+      .hero-links a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+
+    /* Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-photo">MK</div>
+      <div class="hero-content">
+        <h1>Mohammad Kazim Zaidi</h1>
+        <div class="hero-subtitle">
+          <span class="typewriter">Principal Engineer</span>
+        </div>
+        <p class="hero-tagline">
+          18+ years building e-commerce from the ground up — design tools, marketplaces, fulfillment systems, and everything in between. Based in Greater Noida West, India.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:kazim@kazim.dev">kazim@kazim.dev</a>
+          <a href="tel:+919718379014">+91 9718 379 014</a>
+          <a href="https://github.com/kazimzaidi" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/kazimzaidi" target="_blank">LinkedIn</a>
+          <a href="https://kazim.dev/resume.md" target="_blank">Resume (Markdown)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-number">3,200+</div>
+        <div class="stat-label">Commits</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4,800+</div>
+        <div class="stat-label">PRs Reviewed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Releases</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Years at Jiffy</div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="card">
+      <h2>About</h2>
+      <div class="about-text">
+        <p>I'm a full-stack engineer with 18+ years of experience, mostly spent building e-commerce products from the ground up. I've shipped everything from custom design tools to order fulfillment pipelines to entire marketplaces.</p>
+        <p>What sets me apart is that I don't just write code — I think about the customer experience, the business logic, and the edge cases that product specs often miss. I've spent years working side-by-side with product managers and business teams, which gives me a strong sense of what makes features actually useful, not just functional.</p>
+        <p>These days, I work heavily with AI coding agents. I treat them like a team — I drive the architecture and decisions, they do the heavy lifting. It's changed how I build software and how much a single engineer can ship. I'm excited about using AI and automation to make teams faster and workflows smarter.</p>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="card">
+      <h2>Experience</h2>
+      <div class="experience-list">
+        <!-- Jiffy - Principal Engineer -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-title">Principal Engineer</span>
+            <span class="experience-dates">Feb 2026 — Present</span>
+          </div>
+          <div class="experience-company">Jiffy.com</div>
+          <p class="experience-description">Jiffy.com is one of the largest online sellers of blank apparel, DTF transfers and print-on-demand products in the US.</p>
+          <ul class="experience-bullets">
+            <li>Setting technical direction across the platform, print, and commerce systems</li>
+            <li>Architecting Group Orders — a system where one person creates a group, invites members, everyone picks their own design and size, and we ship the whole thing together, or to individual members separately. Involves member state management, invite links, design snapshots, and payment orchestration with Stripe</li>
+            <li>Championing AI-augmented development across the engineering team — using coding agents for implementation, review, and exploration, treating AI as a force multiplier</li>
+          </ul>
+        </div>
+
+        <!-- Jiffy - Technical Lead Manager -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-title">Technical Lead Manager</span>
+            <span class="experience-dates">Dec 2017 — Jan 2026</span>
+          </div>
+          <div class="experience-company">Jiffy.com</div>
+          <p class="experience-description">Led engineering teams while staying deeply hands-on. Owned major product initiatives end-to-end — from early brainstorming with product managers to shipping and monitoring in production. Reviewed thousands of pull requests across multiple teams.</p>
+
+          <p style="font-weight: 600; margin-top: 1.25rem; margin-bottom: 1rem;">Projects:</p>
+          <ul class="project-list">
+            <li class="project-item">
+              <span class="project-name">Print-on-Demand Platform — Jiffy Custom:</span>
+              <span class="project-desc">Built the system that lets customers design custom apparel in the browser and order it. This includes a Design Lab (a browser-based editor where customers place artwork on shirts, mugs, etc.), real-time preview rendering, mobile-responsive editing, and the full add-to-cart-to-fulfillment pipeline.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Fastest Delivery:</span>
+              <span class="project-desc">Led a delivery optimization initiative that calculates the fastest possible delivery date for print orders based on print method, shipping options, and fulfillment location. This directly improved conversion by giving customers clear delivery expectations upfront.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Jiffy Designs — Digital Assets Marketplace:</span>
+              <span class="project-desc">Built a platform where designers can upload and manage their artwork. Includes AI-powered tagging and metadata generation, importing from sources like Etsy and Google Drive, and a search experience backed by Elasticsearch.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Dekeo & CrafterPay — Print on Demand Marketplace:</span>
+              <span class="project-desc">Architected a full two-sided marketplace from scratch. Customers could find local designers by location and specialty, get quotes, chat in real-time, and place custom orders. Designers had portfolios, payment tracking, and order management. This was a large effort touching every layer of the stack.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Jiffy Transfers — DTF Sheets Marketplace:</span>
+              <span class="project-desc">Lead a team that launched a marketplace from scratch, for DTF gang sheets. Customers could upload artwork, that gets enhanced and background-removed using AI pipeline, and gets sent as gangsheets to a printer network across USA. Fully automated fulfilment, and superfast delivery times.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Multi-Supplier Order Orchestration:</span>
+              <span class="project-desc">Pioneered the system that automatically routes orders to the right supplier (Alphabroder, S&S Activewear, Sanmar) based on inventory, cost, and delivery speed. Includes failover logic — if one supplier is out of stock, the system reassigns automatically. Also built "dark inventory" simulation to model what-if scenarios for warehouse allocation.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Dynamic Pricing & Sales Engine:</span>
+              <span class="project-desc">Created a flexible pricing system with tiered pricing based on cart totals, parallel sale campaigns, and A/B testing to measure impact.</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Jiffy Canada:</span>
+              <span class="project-desc">Extended Jiffy to support multiple countries with localized pricing and tax rules — and launched Jiffy Canada.</span>
+            </li>
+          </ul>
+          <div class="experience-stats">
+            <strong>Stats:</strong> 3,200+ commits, 4,800+ PRs reviewed, 200+ releases, 8 years
+          </div>
+        </div>
+
+        <!-- 5amily -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-title">Senior Web Developer</span>
+            <span class="experience-dates">Mar 2008 — Nov 2017</span>
+          </div>
+          <div class="experience-company">5amily.com</div>
+          <p class="experience-description">5amily (pronounced "family") was a personalized gifting store — shirts, mugs, and bags customized with people's names and interests. I was one of the earliest engineers and built most of the product.</p>
+          <ul class="experience-bullets">
+            <li>Built the entire e-commerce backend in Rails, with frontend iterations in Ember.js and later Riot.js. Integrated Stripe and PayPal for payments, built a coupon engine, upsell system, and shipment tracking</li>
+            <li>Created a design system that could generate thousands of product variations from HTML templates based on a customer's name and passion (like "Sarah who loves Dogs"). Used SHA-based caching so the same design wouldn't be rendered twice</li>
+            <li>Built a complete family tree platform — collaborative editing, tree merging, duplicate detection, permission controls, ancestor/descendant charts, and personalized family newsletters</li>
+            <li>Developed an in-house email marketing platform</li>
+            <li>Launched an in-house state of the art Facebook Ads automation engine with rule-based budget control, and a Messenger bot platform with conversation scripting</li>
+            <li>Managed deployment on AWS (EC2, RDS, S3, CloudFront) and handled site performance optimization and SEO</li>
+          </ul>
+        </div>
+
+        <!-- ValueMax Solutions -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-title">Web Developer</span>
+            <span class="experience-dates">Jun 2007 — Mar 2008</span>
+          </div>
+          <div class="experience-company">ValueMax Solutions</div>
+          <p class="experience-description">Built two web products (while in college): Coupons4Me (a coupon aggregator) and Spendwrite (a local business review platform, similar to early Yelp).</p>
+        </div>
+
+        <!-- CivicSpace -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="experience-title">Summer Intern</span>
+            <span class="experience-dates">Aug — Sep 2006</span>
+          </div>
+          <div class="experience-company">CivicSpace USA</div>
+          <p class="experience-description">Worked on e-commerce-related Drupal modules during a summer internship.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Bring Section -->
+    <section class="card">
+      <h2>What I Bring</h2>
+      <div class="brings-grid">
+        <div class="bring-card">
+          <div class="bring-card-emoji">🧠</div>
+          <h4>Product Thinking</h4>
+          <p>I've spent years brainstorming with product managers and business teams. I naturally think about user flows, edge cases, and whether a feature actually solves the problem — not just whether it works technically.</p>
+        </div>
+        <div class="bring-card">
+          <div class="bring-card-emoji">🛒</div>
+          <h4>Deep E-commerce Knowledge</h4>
+          <p>18 years of building online stores, with deep expertise in print-on-demand (custom apparel, mugs, etc.), order fulfillment, inventory management, and pricing systems.</p>
+        </div>
+        <div class="bring-card">
+          <div class="bring-card-emoji">🤖</div>
+          <h4>AI-First Workflow</h4>
+          <p>I use AI coding agents daily — for writing code, exploring approaches, and accelerating delivery. I'm always looking for ways to push this further.</p>
+        </div>
+        <div class="bring-card">
+          <div class="bring-card-emoji">⚙️</div>
+          <h4>Automation Mindset</h4>
+          <p>I get excited about removing manual work. Whether it's order routing, content generation, or developer workflows — if it can be automated, I want to automate it.</p>
+        </div>
+        <div class="bring-card">
+          <div class="bring-card-emoji">🔧</div>
+          <h4>Full-Stack, End-to-End</h4>
+          <p>Ruby on Rails is my strongest tool. I understand React well and review frontend code regularly, though I'm more backend-leaning. Comfortable with PostgreSQL, Elasticsearch, Sidekiq, Redis, AWS, and Docker.</p>
+        </div>
+        <div class="bring-card">
+          <div class="bring-card-emoji">💬</div>
+          <h4>Communication & Big-Picture Thinking</h4>
+          <p>I can zoom out, ask the right questions, and introduce fresh ideas when needed. Over the years, I've learned to value pragmatism over novelty. I prioritize getting to a usable product early rather than spending excessive time perfecting something the market may not need.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="card">
+      <h2>Education</h2>
+      <ul class="education-list">
+        <li class="education-item">
+          <div class="education-degree">B.Tech in Computer Science</div>
+          <div class="education-school">Jamia Millia Islamia, New Delhi</div>
+          <div class="education-dates">2005–2009</div>
+        </li>
+        <li class="education-item">
+          <div class="education-degree">Senior Secondary</div>
+          <div class="education-school">Aligarh Muslim University</div>
+          <div class="education-dates">2002–2004</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="mailto:kazim@kazim.dev">Email</a>
+        <a href="https://github.com/kazimzaidi" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/kazimzaidi" target="_blank">LinkedIn</a>
+        <a href="https://kazim.dev/resume.md" target="_blank">Markdown Version</a>
+      </div>
+      <p>Built with care in 2026.</p>
+    </footer>
+  </div>
+
+  <!-- Scroll Reveal Intersection Observer -->
+  <script>
+    // Scroll reveal animation for cards using IntersectionObserver
+    const cards = document.querySelectorAll('.card');
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>

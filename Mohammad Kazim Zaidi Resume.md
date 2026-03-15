@@ -2,7 +2,7 @@
 
 **Principal Engineer**
 
-Delhi NCR, India · [kazim@kazim.dev](mailto:kazim@kazim.dev) · +91 9718 379 014
+Delhi NCR, India · [pursuit86@gmail.com](mailto:pursuit86@gmail.com) · +91 9718 379 014
 [github.com/kazimzaidi](https://github.com/kazimzaidi) · [linkedin.com/in/kazimzaidi](https://linkedin.com/in/kazimzaidi) · [kazim.dev](https://kazim.dev)
 
 ---

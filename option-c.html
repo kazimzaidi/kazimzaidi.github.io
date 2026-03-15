@@ -625,17 +625,95 @@
 
     /* ===== PRINT ===== */
     @media print {
-      body { background: #fff; }
-      .hero { min-height: auto; padding: 24px 0; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      body { background: #fff; color: #1a1a1a; font-size: 10pt; line-height: 1.5; }
+
+      /* Hero — compact, no decorative elements */
+      .hero { min-height: auto; padding: 20px 0 12px; background: #fff; }
       .hero::before { display: none; }
+      .hero-photo-ring { width: 80px; height: 80px; margin-bottom: 12px; }
       .hero-photo-ring::before, .hero-photo-ring::after { display: none; }
-      .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
-      .exp-item { break-inside: avoid; }
-      .reveal { opacity: 1 !important; transform: none !important; }
+      .hero-photo { width: 80px; height: 80px; }
+      .hero h1 { font-size: 20pt; margin-bottom: 2px; }
+      .hero-role { font-size: 11pt; margin-bottom: 6px; }
+      .hero-tagline { font-size: 9pt; margin-top: 6px; max-width: 100%; }
       .thinking-line { display: none; }
+      .hero-links { margin-top: 10px; font-size: 8.5pt; gap: 4px 10px; }
+      .hero-links .sep { color: #999; }
+
+      /* Expand links — show URL after link text for non-obvious links */
+      .hero-links a[href^="https"]::after,
+      .hero-links a[href="Mohammad Kazim Zaidi Resume.md"]::after {
+        content: ' (' attr(href) ')';
+        font-size: 7.5pt;
+        color: #666;
+        font-family: var(--mono);
+      }
+      .exp-org a[href^="https"]::after,
+      .footer-links a[href^="https"]::after {
+        content: ' (' attr(href) ')';
+        font-size: 7.5pt;
+        color: #666;
+        font-family: var(--mono);
+      }
+
+      /* Links — plain text style */
+      a { color: #1a1a1a !important; text-decoration: none !important; border: none !important; }
+
+      /* Container — use full width */
+      .container { max-width: 100%; padding: 0; }
+
+      /* Cards — no shadows, tighter */
+      .card { box-shadow: none; border: 1px solid #ddd; padding: 16px 20px; margin-bottom: 16px; border-radius: 8px; break-inside: avoid; }
+
+      /* Section headings — show text, no cursor */
+      .section-heading { margin-bottom: 14px; font-size: 8pt; }
       .section-heading .sh-cursor { display: none; }
-      .ai-tag .ai-dot { animation: none; }
+
+      /* About — tighter */
+      .about p { font-size: 9.5pt; margin-bottom: 6px; }
+
+      /* Experience timeline */
+      .exp-timeline { padding-left: 20px; }
+      .exp-item { padding-bottom: 14px; padding-left: 16px; break-inside: avoid; }
+      .exp-dot { width: 8px; height: 8px; left: -4px; }
       .exp-item.current .exp-dot::after { display: none; }
+      .exp-role { font-size: 11pt; }
+      .exp-date { font-size: 8pt; }
+      .exp-org { font-size: 9pt; margin-bottom: 4px; }
+      .exp-summary { font-size: 9pt; margin-bottom: 6px; }
+      .exp-item ul { font-size: 9pt; }
+      .exp-item ul li { margin-bottom: 3px; }
+      .project-block { margin-bottom: 8px; padding: 8px 12px; }
+      .project-name { font-size: 9.5pt; margin-bottom: 3px; }
+      .project-desc { font-size: 8.5pt; }
+      .stats-inline { margin-top: 8px; font-size: 8pt; gap: 10px; }
+
+      /* AI tags — static, no animation */
+      .ai-tag { font-size: 7pt; }
+      .ai-tag .ai-dot { display: none; }
+
+      /* Strengths */
+      .strength-grid { gap: 12px; }
+      .strength-item { padding: 10px 14px; break-inside: avoid; }
+      .strength-title { font-size: 9.5pt; }
+      .strength-desc { font-size: 8.5pt; }
+
+      /* Education */
+      .edu-item { margin-bottom: 6px; }
+      .edu-degree { font-size: 9.5pt; }
+      .edu-school { font-size: 8.5pt; }
+      .edu-year { font-size: 8pt; }
+
+      /* Scroll reveal — show everything */
+      .reveal { opacity: 1 !important; transform: none !important; }
+
+      /* Footer — hide in print, info is already in hero */
+      footer { display: none; }
+
+      /* Page margins */
+      @page { margin: 0.5in; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -678,7 +756,7 @@
     </div>
 
     <div class="hero-links">
-      <a href="mailto:kazim@kazim.dev">kazim@kazim.dev</a>
+      <a href="mailto:pursuit86@gmail.com">pursuit86@gmail.com</a>
       <span class="sep">/</span>
       <a href="tel:+919718379014">+91 9718 379 014</a>
       <span class="sep">/</span>
@@ -686,7 +764,7 @@
       <span class="sep">/</span>
       <a href="https://linkedin.com/in/kazimzaidi" target="_blank">LinkedIn</a>
       <span class="sep">/</span>
-      <a href="resume-v2.md">Resume (Markdown)</a>
+      <span class="resume-links">Resume (<a href="Mohammad Kazim Zaidi Resume.md">Markdown</a> | <a href="Mohammad Kazim Zaidi Resume.pdf">PDF</a>)</span>
     </div>
   </div>
 </section>
@@ -904,10 +982,11 @@
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="footer-links">
-    <a href="mailto:kazim@kazim.dev">Email</a>
+    <a href="mailto:pursuit86@gmail.com">Email</a>
     <a href="https://github.com/kazimzaidi" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/kazimzaidi" target="_blank">LinkedIn</a>
-    <a href="resume-v2.md">Markdown Version</a>
+    <a href="Mohammad Kazim Zaidi Resume.md">Markdown</a>
+    <a href="Mohammad Kazim Zaidi Resume.pdf">PDF</a>
   </div>
   <div class="footer-note">&gt; built with care in 2026 <span class="footer-cursor">|</span></div>
 </footer>
@@ -1065,6 +1144,21 @@
       // First pulse after a short delay
       setTimeout(doPulse, 800);
     }
+
+    /* ===== Print — ensure all content is visible ===== */
+    window.addEventListener('beforeprint', function() {
+      // Fill in any headings that haven't been typed yet
+      document.querySelectorAll('.section-heading[data-typetext]').forEach(function(el) {
+        var textEl = el.querySelector('.sh-text');
+        if (textEl && !textEl.textContent) {
+          textEl.textContent = el.getAttribute('data-typetext');
+        }
+      });
+      // Make all reveal elements visible
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    });
   })();
 </script>
 
